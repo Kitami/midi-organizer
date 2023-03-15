@@ -28,26 +28,26 @@ class MidiOrganizerGUI:
         self.duration_fig.grid(row=2, column=1, padx=5, pady=5)
 
         # 创建用于指定时值、力度和BPM的输入框
-        velocity_threshold_var=0
-        duration_threshold_var=0
-        bpm_var=0
-        quantize_var=0
+        self.velocity_threshold_var=""
+        self.duration_threshold_var=""
+        self.bpm_var=""
+        self.quantize_var=""
         
         input_frame = ttk.Frame(self.window, padding=10)
         input_frame.grid(row=3, column=0, columnspan=2, sticky="we")
 
         ttk.Label(input_frame, text="Velocity threshold:").grid(row=0, column=0, padx=5, sticky="w")
-        ttk.Entry(input_frame, textvariable=velocity_threshold_var).grid(row=0, column=1, padx=5, pady=5, sticky="we")
+        ttk.Entry(input_frame, textvariable=self.velocity_threshold_var).grid(row=0, column=1, padx=5, pady=5, sticky="we")
 
         ttk.Label(input_frame, text="Duration threshold:").grid(row=1, column=0, padx=5, sticky="w")
-        ttk.Entry(input_frame, textvariable=duration_threshold_var).grid(row=1, column=1, padx=5, pady=5, sticky="we")
+        ttk.Entry(input_frame, textvariable=self.duration_threshold_var).grid(row=1, column=1, padx=5, pady=5, sticky="we")
 
         ttk.Label(input_frame, text="BPM:").grid(row=2, column=0, padx=5, sticky="w")
-        ttk.Entry(input_frame, textvariable=bpm_var).grid(row=2, column=1, padx=5, pady=5, sticky="we")
+        ttk.Entry(input_frame, textvariable=self.bpm_var).grid(row=2, column=1, padx=5, pady=5, sticky="we")
         
         # 创建下拉菜单，用于选择Quantize单位
         ttk.Label(input_frame, text="Quantize unit:").grid(row=3, column=0, padx=5, sticky="w")
-        ttk.Combobox(input_frame, textvariable=quantize_var, values=["16分音符", "32分音符"]).grid(row=3, column=1, padx=5, pady=5, sticky="we")
+        ttk.Combobox(input_frame, textvariable=self.quantize_var, values=["16分音符", "32分音符"]).grid(row=3, column=1, padx=5, pady=5, sticky="we")
 
         # 创建“执行”按钮
         self.execute_button = ttk.Button(self.window, text="执行", command=self.execute)

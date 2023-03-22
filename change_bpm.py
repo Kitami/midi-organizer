@@ -2,14 +2,11 @@ import os
 import mido
 
 def change_bpm():
-    # 获取用户输入的文件路径和BPM
+    # 获取用户输入的文件路径
     midi_file_path = input('Please enter MIDI file path: ')
-    new_bpm = int(input('Please enter new BPM: '))
 
     # 打开MIDI文件
     midi_file = mido.MidiFile(midi_file_path)
-    
-    # 设置BPM为指定值
 
     # 获取原始 BPM 值
     original_tempo = 0
@@ -19,6 +16,9 @@ def change_bpm():
             original_tempo = msg.tempo
             original_bpm = mido.tempo2bpm(original_tempo)
             break
+    
+    print( "original_tempo: {:.2f}".format(original_bpm))
+    new_bpm = int(input('Please enter new BPM: '))
 
     # 更新 MIDI 文件的时间刻度和 BPM 值
     for track in midi_file.tracks:

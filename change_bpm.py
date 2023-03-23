@@ -18,7 +18,7 @@ def change_bpm():
             break
     
     print( "original_tempo: {:.2f}".format(original_bpm))
-    new_bpm = int(input('Please enter new BPM: '))
+    new_bpm = float(input('Please enter new BPM: '))
 
     # 更新 MIDI 文件的时间刻度和 BPM 值
     for track in midi_file.tracks:
